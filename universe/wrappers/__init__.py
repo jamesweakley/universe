@@ -2,7 +2,6 @@ import gym
 from universe import envs, spaces
 from universe.wrappers import gym_core_sync
 
-from universe.wrappers.action_space import SafeActionSpace
 from universe.wrappers.gym_core import GymCoreAction, GymCoreObservation, CropAtari
 from universe.wrappers.blocking_reset import BlockingReset
 from universe.wrappers.diagnostics import Diagnostics
