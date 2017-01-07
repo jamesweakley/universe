@@ -1,7 +1,10 @@
-import warnings
+import logging
+
 import gym
 from universe import error, spaces
 from universe import vectorized
+
+logger = logging.getLogger(__name__)
 
 
 def atari_vnc(up=False, down=False, left=False, right=False, z=False):
@@ -88,6 +91,6 @@ class SafeActionSpace(vectorized.Wrapper):
                                                   platform_vnc(space=True)])
 
     def _deprecations_warning(self):
-        warnings.warn(('wrapper.SafeActionSpace is moved to '
-                       'wrapper.experimental.action_space.SafeActionSpace as of 2017-01-07. '
-                       'Using legacy wrapper.SafeActionSpace will soon be removed'), DeprecationWarning)
+        logger.warn(('DEPRECATION WARNING: wrappers.SafeActionSpace has been moved to '
+                     'wrappers.experimental.action_space.SafeActionSpace as of 2017-01-07. '
+                     'Using legacy wrappers.SafeActionSpace will soon be removed'))
