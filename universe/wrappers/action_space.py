@@ -62,10 +62,14 @@ class SafeActionSpace(vectorized.Wrapper):
     Doing so is very convenient for research, since today's RL algorithms rely on random
     exploration, which is hurt by small action spaces.  As our algorithms get better
     and we switch to using the raw VNC commands, this wrapper will become less important.
+
+
+    NOTE: This class will soon be moved to `wrappers.experimental`. However the logic must currently remain in
+    wrappers.SafeActionSpace in order to maintain backwards compatibility.
     """
     def __init__(self, env):
         super(SafeActionSpace, self).__init__(env)
-        self._deprecations_warning()
+        self._deprecation_warning()
 
         if self.spec.tags.get('runtime') == 'gym-core':
             self.action_space = gym_core_action_space(self.spec._kwargs['gym_core_id'])
@@ -90,7 +94,7 @@ class SafeActionSpace(vectorized.Wrapper):
                                                   platform_vnc(right=True),
                                                   platform_vnc(space=True)])
 
-    def _deprecations_warning(self):
+    def _deprecation_warning(self):
         logger.warn(('DEPRECATION WARNING: wrappers.SafeActionSpace has been moved to '
                      'wrappers.experimental.action_space.SafeActionSpace as of 2017-01-07. '
                      'Using legacy wrappers.SafeActionSpace will soon be removed'))
