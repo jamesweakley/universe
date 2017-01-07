@@ -7,10 +7,10 @@ logger.setLevel(logging.INFO)
 
 
 def CropObservations(env):
-    '''
-    Crops the visual observations of an environment so that they only contain the game data.
-    I.e removing anything outside the game that usually belongs to universe (browser borders and so on).
-    '''
+    """"
+    Crops the visual observations of an environment so that they only contain the game screen.
+    Removes anything outside the game that usually belongs to universe (browser borders and so on).
+    """
     if env.spec.tags.get('flashgames', False):
         spec = runtime_spec('flashgames').server_registry[env.spec.id]
         return _CropObservations(env, x=18, y=84, height=spec["height"], width=spec["width"])
