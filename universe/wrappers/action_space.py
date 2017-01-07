@@ -46,12 +46,9 @@ def gym_core_action_space(gym_core_id):
     else:
         raise error.Error('Unsupported env type: {}'.format(spec.id))
 
-'''
-*Should* preferably be inheriting from the new SafeActionSpace but
-that creates a circular dep. so best avoid that.
-'''
 class SafeActionSpace(object):
     def __init__(self, env):
+        # We unfortunately can't maintain backwards compatability here because it would cause an import cycle.
         warnings.warn(('wrapper.SafeActionSpace is moved to '
-                      'wrapper.experimental.action_space.SafeActionSpace, '
-                      'using legacy SafeActionSpace is now a NOOP'), DeprecationWarning)
+                      'wrapper.experimental.action_space.SafeActionSpace as of 2017-01-07. '
+                      'Using legacy wrapper.SafeActionSpace is now a NOOP'), DeprecationWarning)
