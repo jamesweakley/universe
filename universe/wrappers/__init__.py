@@ -17,6 +17,7 @@ from universe.wrappers.recording import Recording
 from universe.wrappers.monitoring import Monitor
 from universe.wrappers.time_limit import TimeLimit
 from universe.wrappers.action_space import SafeActionSpace
+import universe.wrappers.experimental
 
 def wrap(env):
     return Timer(Render(Throttle(env)))
