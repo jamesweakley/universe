@@ -1,11 +1,11 @@
 import logging
 
-from universe import wrappers as non_experimental_wrappers
+from universe.wrappers.action_space import SafeActionSpace as _SafeActionSpace
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
-class SafeActionSpace(non_experimental_wrappers.SafeActionSpace):
+class SafeActionSpace(_SafeActionSpace):
     """
     Recall that every universe environment receives a list of VNC events as action.
     There exist many environments for which the set of relevant action is much smaller
