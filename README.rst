@@ -165,7 +165,7 @@ To do some actual development work, you probably want to do another volume map f
 
     docker run --privileged --rm -it -e DOCKER_NET_HOST=172.17.0.1 -v /var/run/docker.sock:/var/run/docker.sock -v (full path to cloned repo above):/usr/local/universe universe python
 
-As you edit the files in your git repo, they will be changed in your docker container and you'll be able to run them in python.
+As you edit the files in your cloned git repo, they will be changed in your docker container and you'll be able to run them in python.
 
 Note if you are using docker for Windows, you'll need to enable the relevant shared drive for this to work.
 
