@@ -146,9 +146,10 @@ Once the image is built, you can do a quick run of the test cases to make sure e
 
 .. code:: shell
 
-docker run --privileged --rm -e DOCKER_NET_HOST=172.17.0.1 -v /var/run/docker.sock:/var/run/docker.sock universe pytest
+    docker run --privileged --rm -e DOCKER_NET_HOST=172.17.0.1 -v /var/run/docker.sock:/var/run/docker.sock universe pytest
 
 Here's a breakdown of that command:
+
 * ``docker run`` - launch a docker container
 * ``--rm`` - delete the container once the launched process finishes
 * ``-e DOCKER_NET_HOST=172.17.0.1`` - tells the universe remote (when launched) to make its VNC connection back to this docker-allocated IP
@@ -160,7 +161,7 @@ To do some actual development work, you probably want to do another volume map f
 
 .. code:: shell
 
-docker run --privileged --rm -it -e DOCKER_NET_HOST=172.17.0.1 -v /var/run/docker.sock:/var/run/docker.sock -v (full path to cloned repo above):/usr/local/universe universe python
+    docker run --privileged --rm -it -e DOCKER_NET_HOST=172.17.0.1 -v /var/run/docker.sock:/var/run/docker.sock -v (full path to cloned repo above):/usr/local/universe universe python
 
 As you edit the files in your git repo, they will be changed in your docker container and you'll be able to run them in python.
 
