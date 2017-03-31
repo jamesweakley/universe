@@ -157,6 +157,8 @@ Here's a breakdown of that command:
 * ``universe`` - use the imaged named 'universe' built above
 * ``pytest`` - run 'pytest' in the container, which runs all the tests
 
+At this point, you'll see a bunch of tests run and hopefully all pass.
+
 To do some actual development work, you probably want to do another volume map from the universe repo on your host into the container, then shell in interactively:
 
 .. code:: shell
